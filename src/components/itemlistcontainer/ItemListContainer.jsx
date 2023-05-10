@@ -1,8 +1,11 @@
 
 
+
 const ItemListContainer = ({text}) => {
+  
+
   return (
-    <div>{text}</div>
+    <div >{text}</div>
   )
 }
 

@@ -1,5 +1,5 @@
-import CartWidget from "./CartWidget"
-import ItemListContainer from "./ItemListContainer"
+import CartWidget from "../CartWidget"
+import ItemListContainer from "../itemlistcontainer/ItemListContainer"
 import "./navbar.css"
 
 

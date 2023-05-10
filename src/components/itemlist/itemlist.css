@@ -1,0 +1,12 @@
+.img{
+    width: 200px
+}
+.productos{
+    display:flex;
+    justify-content: center;
+    margin: 20px;
+}
+.card{
+    border: solid 3px red;
+    padding: 10px;
+}
