@@ -1,8 +1,5 @@
-import { createContext} from "react"
+import { createContext } from "react";
 
+const CantidadProducto= createContext("")
 
-const CantidadProducto = createContext()
-
-
- 
-export default CantidadProducto
+export default CantidadProducto;

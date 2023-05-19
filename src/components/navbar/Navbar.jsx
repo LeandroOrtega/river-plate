@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import CartWidget from "../CartWidget"
 import ItemListContainer from "../itemlistcontainer/ItemListContainer"
 import "./navbar.css"
 import ItemList from "../itemlist/ItemList"
 import { Link } from "react-router-dom"
+import CantidadProducto from "../CantidadProducto"
 
 
 const Navbar = () => {
@@ -17,6 +18,7 @@ const Navbar = () => {
       <a>Damas</a>
     <a>Niños</a>
     <a>Hombres</a>
+    
     <CartWidget />
 
   </nav>
