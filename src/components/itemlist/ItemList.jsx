@@ -1,17 +1,20 @@
-import { useContext} from "react"
+import { useContext, useEffect, useState} from "react"
 import "./itemlist.css"
 import CantidadProducto from "../CantidadProducto";
+import { Link } from "react-router-dom";
+import ItemDetailContainer from "../itemDetailContainer/ItemDetailContainer";
 
 
 
 
 
 
-const productos = [{name:"Camiseta titular",precio:"100", img:"codere-river.jpeg" },{name:"Pantalon", precio: 80, img:"pantalon.jpg"},{name:"Campera", precio: 150, img:"codere-river.jpeg"}]
 
 
-const ItemList = () => {
+
+const ItemList = ({productos}) => {
  const {cantidad,setCantidad} = useContext(CantidadProducto);
+
 
 
 return(
@@ -19,19 +22,32 @@ return(
     
     < div className="productos">
     <div >
+    <Link to="/detail"className="card" onClick={()=>{localStorage.setItem(producto,"producto");
+ const prodd =JSON.stringify(producto) ;
+ 
+ const prod1 = JSON.parse(prodd);
+
+
+ console.log(prod1);}}>
         
-    <div className="card">
+    <div >
     <h3> {producto.name}</h3>
  
     <img src={producto.img}alt="camiseta " className="img" />
     <p>Precio: $ {producto.precio}</p>
-   <button onClick={()=>{setCantidad(cantidad+1)}} >Agregar al carrito</button>
+   
+   
+    </div>
+    </Link>
+    <button onClick={()=>{setCantidad(cantidad+1);
+    
+    }} >Agregar al carrito</button>
+   
     
     </div>
     
     </div>
-    
-    </div>
+   
    
   )
 

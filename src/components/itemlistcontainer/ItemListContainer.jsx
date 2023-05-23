@@ -1,7 +1,7 @@
 
 
 
-const ItemListContainer = ({text}) => {
+const ItemListContainer = () => {
   
 
   return (
