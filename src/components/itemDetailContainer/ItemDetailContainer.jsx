@@ -5,7 +5,7 @@ const ItemDetailContainer = () => {
   return (
    
 <div>
-    <h2>{}</h2>
+    <h2>Detalle de producto</h2>
     
 </div>
 
