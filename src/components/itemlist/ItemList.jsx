@@ -22,16 +22,15 @@ return(
     
     < div className="productos">
     <div >
-    <Link to="/detail"className="card" onClick={()=>{localStorage.setItem(producto,"producto");
+    <Link to ={`/detail/${producto.id}`} className="card" onClick={()=>{localStorage.setItem(producto,"producto");
  const prodd =JSON.stringify(producto) ;
  
  const prod1 = JSON.parse(prodd);
-
-
  console.log(prod1);}}>
         
     <div >
     <h3> {producto.name}</h3>
+    
  
     <img src={producto.img}alt="camiseta " className="img" />
     <p>Precio: $ {producto.precio}</p>
