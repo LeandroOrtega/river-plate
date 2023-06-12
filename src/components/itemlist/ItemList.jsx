@@ -26,7 +26,7 @@ return(
  const prodd =JSON.stringify(producto) ;
  
  const prod1 = JSON.parse(prodd);
- console.log(prod1);}}>
+ console.log(prod1.name);}}>
         
     <div >
     <h3> {producto.name}</h3>

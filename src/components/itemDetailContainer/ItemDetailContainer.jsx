@@ -1,32 +1,38 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
 
+import { useParams } from "react-router-dom"
+import "./itemDetail.css"
+import { useContext } from "react";
+import CantidadProducto from "../CantidadProducto";
 
 const ItemDetailContainer = ({productos}) => {
+  const {cantidad,setCantidad} = useContext(CantidadProducto);
 
-const {id}= useParams();
+const {id} = useParams();
+  const data = productos
+ const resultado = data.filter(producto=> producto.id == id)
+console.log(id);
 
-const [producto,setProducto]=useState();
-useEffect(()=>{
-  productos.map((producto)=> {
-  localStorage.setItem(producto,"producto");
-  const prodd =JSON.stringify(producto) ;
-  
-  const prod1 = JSON.parse(prodd.id);
-  console.log(prod1);
-  setProducto(prod1.id)});},[]
-)
-
-
-  return (
-   
-<div>
-  <h3>{producto}</h3>
-    <h2>Detalle de producto</h2>
+return(
+ resultado.map((produ)=>
+ <div className="cardDetail">
+   <h2>{produ.name}</h2>
+  <img src={`/${produ.img}`} alt={produ.name} className="imgDetail"/>
+  <p>{produ.description}</p>
+  <h3>{produ.precio}</h3>
+  <button className="btnDetail" onClick={()=>{setCantidad(cantidad+1);
     
-</div>
+  }} >Agregar al carrito</button>
+ 
+   </div>
+  )
+  
 
-    )
+ ) 
+  
+ 
+   
+    
+  
     
 }
 

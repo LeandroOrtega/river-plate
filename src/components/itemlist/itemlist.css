@@ -1,16 +1,15 @@
 .img{
-    width: 250px
+width: 250px;
 }
 .productos{
-    width: 100%;
+    width: 40%;
  display: flex;
  justify-content: space-between;
  
-   
     margin: 20px;
 }
 .card{
-    border: solid 3px red;
+    border: solid 3px rgb(240, 38, 38);
     border-radius: 2rem;
     padding: 10px;
     display: flex;
