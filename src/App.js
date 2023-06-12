@@ -26,15 +26,15 @@ function App() {
     <Logo/>
    
     <Navbar />
-    <Formulario/>
-   {/* <Data/> */}
+    {/* <Formulario/> */}
+ 
     <Routes>
       <Route>
     <Route path="/item-list" element= {<ItemList productos={productos}/>} />
   <Route path="/detail/:id" element= {<ItemDetailContainer productos={productos} />}/>
     </Route>
     </Routes>
-  <Data/>
+  {/* <Data/> */}
     </CantidadProducto.Provider>
 
     </BrowserRouter>
