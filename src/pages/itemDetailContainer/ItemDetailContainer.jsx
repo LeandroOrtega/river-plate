@@ -2,7 +2,7 @@
 import { useParams } from "react-router-dom"
 import "./itemDetail.css"
 import { useContext, useEffect, useState } from "react";
-import CantidadProducto from "../CantidadProducto";
+import CantidadProducto from "../../components/CantidadProducto";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 
@@ -19,7 +19,7 @@ useEffect(()=>{
   console.log(dataCollection);
     setData(dataCollection)
     const obtenerProdu = async ()=>{
-      const produc =  await dataCollection.filter((prod)=>prod.categoryId ==id);
+      const produc =  await dataCollection.filter((prod)=>prod.id ==id);
   
       setProdu(...produc)
     }

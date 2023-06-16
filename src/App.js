@@ -1,14 +1,14 @@
 import Navbar from "./components/navbar/Navbar"
 import './App.css';
 import Logo from "./components/logo/Logo";
-import ItemList from "./components/itemlist/ItemList";
+import {ItemList,ItemDetailContainer,Damas} from "../src/pages";
 import { BrowserRouter, Routes, Route} from "react-router-dom"
 import CantidadProducto from "./components/CantidadProducto";
 import { useState } from "react";
-import ItemDetailContainer from "./components/itemDetailContainer/ItemDetailContainer";
+
 import Formulario from "./components/formularioCompra/Formulario";
 import Data from "./components/data/Data";
-// import Data from "./components/data/Data";
+
 
 
 
@@ -30,8 +30,9 @@ function App() {
  
     <Routes>
       <Route>
-    <Route path="/item-list" element= {<Data/>} />
+    <Route path="/item-list" element= {<ItemList key='itemList'/>} />
   <Route path="/detail/:id" element= {<ItemDetailContainer productos={productos} />}/>
+  <Route path="/:damas" element={<Damas/>}/>
     </Route>
     </Routes>
     </CantidadProducto.Provider>
