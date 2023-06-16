@@ -30,11 +30,10 @@ function App() {
  
     <Routes>
       <Route>
-    <Route path="/item-list" element= {<ItemList productos={productos}/>} />
+    <Route path="/item-list" element= {<Data/>} />
   <Route path="/detail/:id" element= {<ItemDetailContainer productos={productos} />}/>
     </Route>
     </Routes>
-  {/* <Data/> */}
     </CantidadProducto.Provider>
 
     </BrowserRouter>

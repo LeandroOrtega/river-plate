@@ -1,8 +1,12 @@
 import {collection, doc, getDoc, getDocs, getFirestore} from "firebase/firestore"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import CantidadProducto from "../CantidadProducto";
+import { Link } from "react-router-dom";
 
 
 const Data = () => {
+  const {cantidad,setCantidad} = useContext(CantidadProducto);
+
 const [data,setData]= useState()
 useEffect(()=>{
   const db = getFirestore();
@@ -17,21 +21,41 @@ useEffect(()=>{
 
     
 
+console.log(data);
 
 
-
-  if(!data) return <p> Cargando</p>
+  if(!data) return <p> Cargando...</p>
   return (
-    <>
     
-    {data.map((producto)=>(
-      <>
-      <p>{producto.title}</p>
-      <img src={producto.image} alt="campera" />
-      </>
-    )
-    )}
-    </>
+    data.map((producto)=> 
+    
+    < div className="productos">
+    <div >
+    <Link to ={`/detail/${producto.categoryId}`} className="card" onClick={()=>{localStorage.setItem(producto,"producto");
+ const prodd =JSON.stringify(producto) ;
+ 
+ const prod1 = JSON.parse(prodd);
+ console.log(prod1.name);}}>
+        
+    <div >
+    <h3> {producto.title}</h3>
+    
+ 
+    <img src={producto.image}alt="camiseta " className="img" />
+    <p>Precio: $ {producto.price}</p>
+   
+   
+    </div>
+    </Link>
+    <button onClick={()=>{setCantidad(cantidad+1);
+    
+    }} >Agregar al carrito</button>
+
+    
+    </div>
+    
+    </div>
+  )
   )
   
 }

@@ -12,6 +12,7 @@ import ItemDetailContainer from "../itemDetailContainer/ItemDetailContainer";
 
 
 
+
 const ItemList = ({productos}) => {
  const {cantidad,setCantidad} = useContext(CantidadProducto);
 
@@ -41,7 +42,7 @@ return(
     <button onClick={()=>{setCantidad(cantidad+1);
     
     }} >Agregar al carrito</button>
-   
+
     
     </div>
     

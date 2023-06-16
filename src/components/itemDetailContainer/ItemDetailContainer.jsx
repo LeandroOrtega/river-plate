@@ -1,33 +1,51 @@
 
 import { useParams } from "react-router-dom"
 import "./itemDetail.css"
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import CantidadProducto from "../CantidadProducto";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
-const ItemDetailContainer = ({productos}) => {
+
+const ItemDetailContainer = () => {
   const {cantidad,setCantidad} = useContext(CantidadProducto);
-
+const [produ,setProdu]=useState({})
 const {id} = useParams();
-  const data = productos
- const resultado = data.filter(producto=> producto.id == id)
-console.log(id);
-
+const [data,setData]= useState()
+useEffect(()=>{
+  const db = getFirestore();
+  const itemsCollection = collection(db,"productos");
+  getDocs(itemsCollection).then((querySnapshot)=>{
+    const dataCollection = querySnapshot.docs.map((doc)=>doc.data())
+  console.log(dataCollection);
+    setData(dataCollection)
+    const obtenerProdu = async ()=>{
+      const produc =  await dataCollection.filter((prod)=>prod.categoryId ==id);
+  
+      setProdu(...produc)
+    }
+    
+    obtenerProdu()
+    
+  })
+},[])
+if(!data) return <p> Cargando...</p>
 return(
- resultado.map((produ)=>
+
  <div className="cardDetail">
-   <h2>{produ.name}</h2>
-  <img src={`/${produ.img}`} alt={produ.name} className="imgDetail"/>
+   <h2>{produ.title}</h2>
+  <img src={`/${produ.image}`} alt={produ.title} className="imgDetail"/>
   <p>{produ.description}</p>
-  <h3>{produ.precio}</h3>
+  <h3>{produ.price}</h3>
   <button className="btnDetail" onClick={()=>{setCantidad(cantidad+1);
     
   }} >Agregar al carrito</button>
  
    </div>
   )
+ 
   
 
- ) 
+ 
   
  
    
@@ -35,6 +53,7 @@ return(
   
     
 }
+
 
 
 export default ItemDetailContainer
